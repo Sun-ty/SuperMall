@@ -1,8 +1,7 @@
 <template>
     <div>
-        <router-view></router-view>
         <TabBar>
-            <TabBarItem path="/home">  <!--因为是组件那自己的属性不需要加： 如果是APP组件拿子组件TabBarItem就需要：传递数据-->
+            <TabBarItem path="/home">  <!--不需要加：冒号，组件接收时默认为字符串类型。而如果是数字类型就得加冒号-->
                 <!--TabBarItem它的内部为两个具名插槽  使用使用要加slot属性 -->
                 <img slot="item-icon" src="@/assets/img/tabbar/home.png" width="30px" height="30px"/>
                 <img slot="item-icon-active" src="@//assets/img/tabbar/home2.png" width="30px" height="30px"/>

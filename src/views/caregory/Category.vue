@@ -1,15 +1,140 @@
 <template>
-    <div>
-        <h2>分类</h2>
-    </div>
+    <Scroll class="item">
+        <ul class="content">
+          <li>小颖</li>
+          <li>小颖</li>
+          <li>小颖</li>
+          <li>小颖</li>
+          <li>小颖</li>
+          <li>小颖</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+          <li>hhh</li>
+        </ul>
+    </Scroll>
 </template>
 
 <script>
-    export default {
-        name: "Home"
+  import Scroll from "../../components/common/scroll/Scroll";
+
+  export default {
+      name: "Home",
+    components:{
+      Scroll
+    },
+      data(){
+        return{
+          scroll:null
+        }
+      }
     }
 </script>
 
 <style scoped>
-
+.item{
+  height: 200px;
+  border: 1px solid red;
+  overflow: hidden;
+}
 </style>
