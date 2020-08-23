@@ -12,7 +12,7 @@
 
     export default {
       name: "GoodsList",
-      props: ["goods"],
+      props: ['goods'],
       components:{
         GoodsListItem
       }
@@ -20,10 +20,10 @@
 </script>
 
 <style scoped>
-.goods-list{
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 15px;
-}
+  .goods-list{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+  }
 </style>

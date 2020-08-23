@@ -5,9 +5,7 @@
     <!-- carousel-indicators为轮播添加一个指示符，就是轮播图底下的一个个小点，轮播的过程可以显示目前是第几张图。-->
     <ul class="carousel-indicators">
       <li data-target="#demo" data-slide-to="0" class="active"></li>
-      <li data-target="#demo" data-slide-to="1"></li>
-      <li data-target="#demo" data-slide-to="2"></li>
-      <li data-target="#demo" data-slide-to="3"></li>
+      <li data-target="#demo" data-slide-to="'index'" v-for="(item,index) in imageArray"  v-if="index>=1"></li>
     </ul>
 
     <!-- 轮播图片  注意下载jQuery-->

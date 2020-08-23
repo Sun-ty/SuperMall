@@ -1,12 +1,23 @@
 <template>
-    <div>
-        <h2>我的</h2>
+    <div id="profile">
+      <!--我的资料-->
+      <my-information/>
+      <!--操作列表-->
+      <my-operation/>
     </div>
 </template>
 
 <script>
-    export default {
-        name: "Profile"
+  import MyInformation from "./childComps/MyInformation";
+  import MyOperation from "./childComps/MyOperation";
+
+  export default {
+      name: "Profile",
+    components:{
+      MyInformation,
+      MyOperation
+    }
+
     }
 </script>
 

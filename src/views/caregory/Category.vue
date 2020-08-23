@@ -1,117 +1,6 @@
 <template>
     <Scroll class="item">
-        <ul class="content">
-          <li>小颖</li>
-          <li>小颖</li>
-          <li>小颖</li>
-          <li>小颖</li>
-          <li>小颖</li>
-          <li>小颖</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-          <li>hhh</li>
-        </ul>
+      <img src="@/assets/img/common/classify.jpg" width="100%" height="100%">
     </Scroll>
 </template>
 
@@ -133,8 +22,7 @@
 
 <style scoped>
 .item{
-  height: 200px;
-  border: 1px solid red;
+  height: 100vh;
   overflow: hidden;
 }
 </style>

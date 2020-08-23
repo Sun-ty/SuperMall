@@ -1,7 +1,7 @@
 <template>
     <div id="home">
         <!--头部导航栏-->
-        <NavBar class="home-nav"><div slot="center">购物街</div></NavBar>
+        <NavBar class="home-nav" ><div slot="center">购物街</div></NavBar>
         <TabControl @tabClick="tabClicks" ref="tabControl1" :title="title" style="padding-bottom:7px;position: absolute;z-index: 2;" v-show="isTabFixed"></TabControl>
       <!--滚动条 封装的组件  better-scroll @pullingUp="loadMore" :pull-up-load="true" -->
       <Scroll class="content" ref="wrapper" :probe-type="3" @scroll="contextScroll" :pull-up-load="true" @pullingUp="loadMore" >
@@ -33,7 +33,7 @@
   import BackTop from "../../components/content/backTop/BackTop";
 
   import {getHomeMultidata,getHomeGoods} from "../../network/home";
-
+  import {itemListenerMixin,ScrolltoTOP} from "../../common/mixin";
   // import BScroll from 'better-scroll'   进行封装 Scroll.vue
 
   export default {
@@ -56,34 +56,21 @@
           firstImage: {url:'',image:''},
           title:['流行','新款','精选'],
           goods:{
-            'pop':{page:0,list:[]},  //流行，page记录页数 用户下拉刷新，page加1
+            'pop':{page:0,list:[]},  //流行，page记录页数 用户上拉加载，page加1
             'new':{page:0,list:[]},  //新款
             'sell':{page:0,list:[]}  //精选
           },
           type:'pop',
-          IsShow:false,
-          isTabFixed:false
+         // IsShow:false,
+          isTabFixed:false,
+          itemImgListener:null
         }
     },
   methods:{
     /*
     *  事件监听相关的方法
     * */
-    //防抖函数  下面传递500毫秒  每次请求等待500毫秒看后面有没有请求，有就等待一起向服务器发送请求，没有就直接一次性发送现有的请求
-    debounce(func,delay){
-      let timer=null
-      return function(...args){  //...可传递多个参数
-
-        if(timer)
-          clearTimeout(timer)
-          timer=setTimeout(()=>{
-          func.apply(this,args)  //apply方法能劫持另外一个对象的方法，继承另外一个对象的属性,使func的this指定当前方法的参数一
-
-          },delay)
-      }
-
-    },
-    tabClicks(index){ //接收子组件的参数x
+    tabClicks(index){ //接收子组件的参数
       //console.log(index)
        if (index==0){
          this.type="pop"
@@ -95,11 +82,11 @@
        this.$refs.tabControl1.indexItem=index;
        this.$refs.tabControl.indexItem=index;
     },
-    backCilck(){
-      //拿到scroll组件的better-scroll对象 监听页面的滚动，然后显示或隐藏回到顶部图标
-      //console.log(this.$refs.wrapper.scroll);
-      this.$refs.wrapper.scroll.scrollTo(0,0,500)  //500毫秒回到滚动条顶部坐标 即页面顶部
-    },
+    // backCilck(){
+    //   //拿到scroll组件的better-scroll对象 监听页面的滚动，然后显示或隐藏回到顶部图标
+    //   //console.log(this.$refs.wrapper.scroll);
+    //   this.$refs.wrapper.scroll.scrollTo(0,0,500)  //500毫秒回到滚动条顶部坐标 即页面顶部
+    // },
     contextScroll(position){
       //1.判断我们的BackTop是否显示
       this.IsShow = (-position.y)>700;  //y的值为负数 先转换为正数
@@ -156,15 +143,25 @@
       this.getHomeGoods('sell');
 
     },
-    mounted() {
-      const refresh=this.debounce(this.$refs.wrapper.refresh,500)
+    mixins:[itemListenerMixin,ScrolltoTOP],
+    //使用了mixin混入时首页Home 和详情页Detail 只需要添加mixin属性 就不需要在重复写两遍
+    // mounted() {
+    //   const refresh=this.debounce(this.$refs.wrapper.refresh,500)
+    //
+    //   //对监听的事件进行报存   就可以判断用户进入详情页面时 移除首页的图片高度计算加载，转为详情页的推荐数据加载
+    //   this.itemImgListener=()=>{
+    //     refresh() //对滚动条的refresh的方法进行处理，防抖函数，一次性向服务器发送请求
+    //
+    //   }
+    //   //3.监听item中图片加载完成  加载事件放在created中比较好  监听GoodsListItem发送过来的方法
+    //   this.$bus.$on('itemImageLoad',this.itemImgListener
+    //     //this.$refs.wrapper.refresh  图片多少张重新加载多少次  服务器压力大
+    //   )
+    // },
+    deactivated() {
 
-      //3.监听item中图片加载完成  加载事件放在created中比较好  监听GoodsListItem发送过来的方法
-      this.$bus.$on('itemImageLoad',()=>{
-        //this.$refs.wrapper.refresh  图片多少张重新加载多少次  服务器压力大
-        refresh() //对滚动条的refresh的方法进行处理，防抖函数，一次性向服务器发送请求
-
-      })
+        //2.取消全局事件itemImageLoad的监听   因为itemImageLoad监听事件 首页与详情页的推荐都有监听，需要传递两个参数，指定移除的那个函数
+      this.$bus.$off('itemImageLoad',this.itemImgListener)
     }
 
   }
@@ -172,6 +169,7 @@
 </script>
 
 <style scoped>
+
 .home-nav{
   width: 100%;
   background-color: var(--colot-tint);
@@ -194,7 +192,7 @@
    /*top:44px;*/
  }
  .content{
-    height: calc(100% - 103px);  /* 设置高度为 home视口高度减去头部NavBar和底部MainTabBar的高度 */
+    height: calc(100% - 103px);  /* 设置高度为 home视口高度减去头部NavBar和底部MainTabBar的高度 最外层的div也需要设置高度*/
     overflow: hidden; /*   59  44   103*/
     /*margin-top: 44px;*/
  }

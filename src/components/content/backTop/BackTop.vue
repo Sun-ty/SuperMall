@@ -6,10 +6,7 @@
 
 <script>
     export default {
-      name: "BackTop",
-      methods:{
-
-      }
+      name: "BackTop"
     }
 </script>
 

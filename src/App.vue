@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!--对所有的路由页面进行保留组件状态，避免频繁渲染-->
-    <keep-alive>
+   <keep-alive exclude="Detail">  <!--排除Detail详情组件，因为每次获取商品详情都是一个新的值-->
       <router-view/>
     </keep-alive>
 

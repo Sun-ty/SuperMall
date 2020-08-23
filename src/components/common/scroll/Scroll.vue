@@ -58,7 +58,6 @@
           this.scroll.finishPullUp()
         },
         refresh(){
-          console.log("-----");
           this.scroll && this.scroll.refresh()
         }
       }
@@ -66,5 +65,5 @@
 </script>
 
 <style scoped>
-  /* 并且还需要为在调用scroll组件时 添加高*/
+  /* 并且还需要为在调用scroll组件时 添加高 并且还得为调用scroll组件的组件父元素设置高为视口高度*/
 </style>

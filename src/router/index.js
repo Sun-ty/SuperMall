@@ -18,7 +18,7 @@ Vue.use(VueRouter)
     },
     {
       path: '/cart',
-      component: ()=>import('../views/cart/Card'),
+      component: ()=>import('../views/cart/Cart'),
       meta:{
         title:'购物车'
       }
@@ -35,6 +35,13 @@ Vue.use(VueRouter)
       component: ()=>import('../views/profile/Profile'),
       meta:{
         title:'我的'
+      }
+    },
+    {
+      path: '/detail/:id',
+      component:()=>import('../views/detail/Detail'),
+      meta: {
+        title: '详情页'
       }
     }
 ]

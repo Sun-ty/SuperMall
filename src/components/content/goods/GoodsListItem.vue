@@ -1,6 +1,6 @@
 <template>
     <div class="goods-item" @click="itemClick">
-        <img :src="gooditem.show.img" @load="ImgLoad">
+        <img :src="showImage" @load="ImgLoad">
       <div>
         <p>{{gooditem.title}}</p>
         <div class="spa-text">
@@ -23,10 +23,16 @@
            *  2.如何拿到Scroll对象呢？ 只有home能拿到，中间隔了一个GoodsList  非父子组件 一个个传递效率低，
            *    使用 "事件总线"(管理事件)main.js使用原型 创建了一个Vue实例作为事件总线 $bus 与Vuex类似(管理组件状态) 当然也可以使用vuex解决传值
            */
-          this.$bus.$emit('itemImageLoad'); //发送方法
+
+            this.$bus.$emit('itemImageLoad'); //发送方法
         },
         itemClick(){
-          console.log("跳转到详情页");
+          this.$router.push('/detail/'+this.gooditem.iid);
+        }
+      },
+      computed:{
+        showImage(){
+          return this.gooditem.image||this.gooditem.show.img
         }
       }
     }
@@ -45,11 +51,12 @@
   p{
     margin-top: 8px;
     height: 30px;
-    /*以...省略号替代多余的文字*/
+    margin-bottom: 0px;
+    /*以...省略号替代多余的文字  对p标签管用*/
     text-overflow:ellipsis;
     white-space:nowrap;
     overflow:hidden;
-    margin-bottom: 0px;
+
   }
   .spa-text{
     margin: 0px;
